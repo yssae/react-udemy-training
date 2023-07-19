@@ -1,0 +1,23 @@
+.animal {
+}
+
+.media-wrapper {
+    max-height: 150px;
+    text-align: center;
+}
+
+img:first-of-type {
+    width: 170px;
+    height: 150px;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.heart {
+    max-width: 150px;
+    max-height: 150px;
+    z-index: 99;
+    position: relative;
+    top: -150px;
+    box-sizing: border-box;
+}
