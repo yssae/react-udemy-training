@@ -17,9 +17,8 @@ export const profiles = [
 ]
 
 function DigitalAssistants() {
-    
     return (
-        <div className="DigitalAssistants">
+        <div className="DigitalAssistants mt-6 pb-5">
             <section className="hero is-small is-info">
                 <div className="hero-body">
                     <p className="title">Personal Digital Assistants</p>
