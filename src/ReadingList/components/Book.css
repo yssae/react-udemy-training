@@ -1,0 +1,26 @@
+
+.book.box {
+    width: 280px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.icon-wrapper img {
+    height: 25px;
+    width: 25px;    
+}
+
+.bookedit-container {
+    padding: 20px;
+    text-align: center;
+}
+#cover {
+    width: 100%;
+    margin-bottom: 15px;
+}
