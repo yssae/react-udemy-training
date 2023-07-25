@@ -7,12 +7,12 @@ import CloseIcon from '../../assets/svg/icons8-close.svg'
 import BookEdit from './BookEdit';
 
 
-function Book({ book, editBookHandler, deleteBookHandler }) {
+function Book({ book, onEditBook, onDeleteBook }) {
     const [editMode, setEditMode] = useState(false)
 
-    const saveChangeHandler = (book) => {
+    const handleEditBook = (book) => {
         setEditMode(!editMode);
-        editBookHandler(book);
+        onEditBook(book);
     }
 
     const handleEdit = () => {
@@ -20,8 +20,7 @@ function Book({ book, editBookHandler, deleteBookHandler }) {
     }
 
     const handleDelete = () => {
-        console.log("handleDelete");
-        deleteBookHandler(book);
+        onDeleteBook(book);
     }
 
     return(
@@ -31,8 +30,7 @@ function Book({ book, editBookHandler, deleteBookHandler }) {
                 <img src={CloseIcon} alt="Close Button" onClick={handleDelete}/>
             </div>
             <div className="bookedit-container">
-                <img src="https://media.pitchfork.com/photos/6352cd4063dcacf1f2521078/3:2/w_1998,h_1332,c_limit/Taylor-Swift-Red.jpg" alt="" id="cover"/><br />
-                <BookEdit saveChangesEvent={saveChangeHandler} bookEditMode={editMode} bookItem={book}/>
+                <BookEdit onEditBook={handleEditBook} bookEditMode={editMode} bookItem={book}/>
             </div>
         </div>
     )

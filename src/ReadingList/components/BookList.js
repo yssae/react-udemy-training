@@ -1,7 +1,6 @@
-import { useState } from "react";
 import Book from "./Book";
 
-function BookList({ books, editBookHandler, deleteBookHandler }) {
+function BookList({ books, onEditBook, onDeleteBook }) {
     return(
         <div className="box section">
              <p className="is-size-5 has-text-weight-bold">Book Collection</p>
@@ -9,7 +8,7 @@ function BookList({ books, editBookHandler, deleteBookHandler }) {
                 {
                     books.map((book, index) => 
                         <div className="column" key={index}>
-                            <Book book={book} editBookHandler={editBookHandler} deleteBookHandler={deleteBookHandler}/>
+                            <Book book={book} onEditBook={onEditBook} onDeleteBook={onDeleteBook}/>
                         </div>
                     )
                 }

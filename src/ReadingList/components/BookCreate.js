@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function BookCreate({ createBookEvent }) {
+function BookCreate({ onCreateBook }) {
     const [book, setBook] = useState('')
     
     const submitBookHandler = (event) => {
         event.preventDefault();
-        createBookEvent(book);
+        onCreateBook(book);
         setBook(""); // reset after submit
     }
 
