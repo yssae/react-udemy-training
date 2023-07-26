@@ -1,26 +1,23 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import "./Book.css";
 
 import EditIcon from '../../assets/svg/icons8-edit.svg';
 import CloseIcon from '../../assets/svg/icons8-close.svg'
 
 import BookEdit from './BookEdit';
+import BookContext from '../../context/books';
 
 
-function Book({ book, onEditBook, onDeleteBook }) {
-    const [editMode, setEditMode] = useState(false)
-
-    const handleEditBook = (book) => {
-        setEditMode(!editMode);
-        onEditBook(book);
-    }
+function Book({ book }) {
+    const [editMode, setEditMode] = useState(false);
+    const { deleteBook } = useContext(BookContext)
 
     const handleEdit = () => {
         setEditMode(!editMode)
     }
 
     const handleDelete = () => {
-        onDeleteBook(book);
+        deleteBook(book);
     }
 
     return(
@@ -30,7 +27,7 @@ function Book({ book, onEditBook, onDeleteBook }) {
                 <img src={CloseIcon} alt="Close Button" onClick={handleDelete}/>
             </div>
             <div className="bookedit-container">
-                <BookEdit onEditBook={handleEditBook} bookEditMode={editMode} bookItem={book}/>
+                <BookEdit bookItem={book} bookEditMode={editMode} toggleBookEditMode={handleEdit} />
             </div>
         </div>
     )
