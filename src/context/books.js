@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import axios from "axios";
 
 const BookContext = createContext();
@@ -22,7 +22,7 @@ function Provider({ children }) {
         setBooks(books.map((book) => book.id === updatedBook.id ? response.data : book))
     }
 
-    const fetchBooks = async() => await axios.get(API_URL).then(response => setBooks(response.data));
+    const fetchBooks = useCallback(async() => await axios.get(API_URL).then(response => setBooks(response.data)), []);
 
     return(
         <BookContext.Provider value={{ books, createBook, deleteBook, editBook, fetchBooks }}>
